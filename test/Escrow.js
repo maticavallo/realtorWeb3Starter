@@ -8,5 +8,4 @@ const tokens = (n) => {
 }
 
 describe('Escrow', () => {
-    })
-})
+    })      
