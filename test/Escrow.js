@@ -27,7 +27,7 @@ describe('Escrow', () => {
             realEstate.address,
             seller.address,
             inspector.address,
-            /*lender.address*/
+            lender.address
         )
 
         // Approve Property
@@ -55,10 +55,10 @@ describe('Escrow', () => {
             expect(result).to.be.equal(inspector.address)
         })
 
-        /*it('Returns lender', async () => {
+        it('Returns lender', async () => {
             const result = await escrow.lender()
             expect(result).to.be.equal(lender.address)
-        })*/
+        })
     })
 
     describe('Listing', () => {
@@ -119,14 +119,14 @@ describe('Escrow', () => {
             transaction = await escrow.connect(seller).approveSale(1)
             await transaction.wait()
 
-            /*transaction = await escrow.connect(lender).approveSale(1)
-            await transaction.wait()*/
+            transaction = await escrow.connect(lender).approveSale(1)
+            await transaction.wait()
         })
 
         it('Updates approval status', async () => {
             expect(await escrow.approval(1, buyer.address)).to.be.equal(true)
             expect(await escrow.approval(1, seller.address)).to.be.equal(true)
-            /*expect(await escrow.approval(1, lender.address)).to.be.equal(true)*/
+            expect(await escrow.approval(1, lender.address)).to.be.equal(true)
         })
     })
 
