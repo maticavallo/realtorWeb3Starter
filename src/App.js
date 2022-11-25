@@ -23,10 +23,36 @@ function App() {
   const [home, setHome] = useState({})
   const [toggle, setToggle] = useState(false);
 
+    //here the Blockchain links with the ReactApp
   const loadBlockchainData = async () => {
-    /*TBC*/
-  }
+    const provider = //complete using ethers
+    setProvider(provider)
+    const network = // complete with await and get the network
 
+    //conecting RealEstate Contract.
+    const RealEstate = new // create an instance with ethers use  (must include properties )
+    
+    const totalSupply = //this variable should await realEstate.totalSupply()
+    const homes = [] //storage of housing/nfts
+
+    for (var i = 1; i <= totalSupply; i++) {
+      const uri = //complete 
+      const response = //complete 
+      const metadata = //complete 
+      homes.push(metadata)
+    }
+
+    setHomes(homes)
+
+    const escrow = new // same here as RealEstate
+    setEscrow(escrow)
+
+    //Interaction with Connect Metamask button
+    ... , async () => {//*use window.ethereum 'accountsChanged' as async function
+    const accounts = // *use await +window ethereum + requestAccount method*
+    const account = //use ethers to get the address
+    setAccount(account); 
+    }  
   useEffect(() => {
     loadBlockchainData()
   }, [])

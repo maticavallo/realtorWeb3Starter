@@ -18,39 +18,40 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
 
     const fetchDetails = async () => {
         // -- Buyer
+        //call different solidty functions from escrow with its home ID
 
-        const buyer = await escrow.buyer(home.id)
+        const buyer = //complete
         setBuyer(buyer)
 
-        const hasBought = await escrow.approval(home.id, buyer)
+        const hasBought = // work with the approval
         setHasBought(hasBought)
 
         // -- Seller
 
-        const seller = await escrow.seller()
+        const seller = //same as buyer
         setSeller(seller)
 
-        const hasSold = await escrow.approval(home.id, seller)
+        const hasSold = //same as hasBought
         setHasSold(hasSold)
 
         // -- Lender
 
-        const lender = await escrow.lender()
+        const lender = //same as others 
         setLender(lender)
 
-        const hasLended = await escrow.approval(home.id, lender)
+        const hasLended = //work with approval 
         setHasLended(hasLended)
 
         // -- Inspector
 
-        const inspector = await escrow.inspector()
-        setInspector(inspector)
+        const inspector = //same as others
 
-        const hasInspected = await escrow.inspectionPassed(home.id)
+        const hasInspected = //work with inspectionPassed
         setHasInspected(hasInspected)
     }
 
     const fetchOwner = async () => {
+        
         if (await escrow.isListed(home.id)) return
 
         const owner = await escrow.buyer(home.id)
